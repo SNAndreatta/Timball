@@ -19,27 +19,3 @@ make setup
 source venv/bin/activate
 make runserver
 ```
-
----
-
-## ¿Cómo borrar TODO el historial de commits de un proyecto?
-
-Puedes reiniciar el historial de commits de un repositorio con los siguientes pasos:
-
-```bash
-# 1. Borra el historial creando una rama huérfana
-git checkout --orphan nueva-rama
-
-# 2. Añade todos los archivos y haz un nuevo commit inicial
-git add .
-git commit -m "Commit inicial"
-
-# 3. Borra la rama principal anterior y renombra la nueva
-git branch -D main
-git branch -m main
-
-# 4. Fuerza el push al repositorio remoto (¡esto sobrescribe el historial remoto!)
-git push -f origin main
-```
-
-**Advertencia:** Esto elimina todo el historial anterior. Úsalo solo si estás seguro.
